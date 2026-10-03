@@ -1,0 +1,6 @@
+[package]
+name = "age_check"
+type = "bin"
+authors = [""]
+
+[dependencies]

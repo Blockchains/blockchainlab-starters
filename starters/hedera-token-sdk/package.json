@@ -1,0 +1,15 @@
+{
+  "name": "@blockchainlab/hedera-token-sdk",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Create, mint and transfer a Hedera Token Service (HTS) fungible token with the Hiero/Hedera JavaScript SDK.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/",
+    "create-token": "node src/create-token.mjs"
+  },
+  "dependencies": {
+    "@hashgraph/sdk": "^2.60.0"
+  }
+}

@@ -1,0 +1,82 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  foundry:
+    name: foundry / ${{ matrix.starter }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        starter: [foundry-oz-tokens, chainlink-price-feed, uniswap-v4-hook, erc4337-smart-account]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: foundry-rs/foundry-toolchain@v1
+      - name: forge build + test
+        working-directory: starters/${{ matrix.starter }}
+        run: |
+          forge --version
+          forge build --sizes
+          forge test -vv
+  node:
+    name: node / ${{ matrix.starter }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        starter: [hedera-token-sdk, wagmi-rainbowkit-dapp]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - working-directory: starters/${{ matrix.starter }}
+        run: |
+          npm ci
+          npm test
+          if npm run | grep -q " build"; then npm run build; fi
+  circom:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install circom v2.2.3
+        run: |
+          curl -sSfL -o /usr/local/bin/circom https://github.com/iden3/circom/releases/download/v2.2.3/circom-linux-amd64
+          chmod +x /usr/local/bin/circom
+          circom --version
+      - working-directory: starters/circom-zk-proof
+        run: |
+          npm ci
+          npm test
+  noir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: noir-lang/noirup@v0.1.5
+        with:
+          toolchain: stable
+      - working-directory: starters/noir-zk-proof
+        run: |
+          nargo --version
+          nargo test
+          nargo execute
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: gitleaks
+        run: |
+          curl -sSfL https://github.com/gitleaks/gitleaks/releases/download/v8.21.2/gitleaks_8.21.2_linux_x64.tar.gz | tar xz gitleaks
+          ./gitleaks detect --source . --no-banner --redact

@@ -1,0 +1,19 @@
+{
+  "name": "@blockchainlab/circom-zk-proof",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Prove knowledge of a Poseidon hash preimage with circom + snarkjs (Groth16), export a Solidity verifier.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "compile": "mkdir -p build && circom circuits/preimage.circom --r1cs --wasm --sym -l node_modules -o build",
+    "setup": "node scripts/setup.mjs",
+    "prove": "node scripts/prove.mjs",
+    "test": "npm run compile && npm run setup && npm run prove"
+  },
+  "dependencies": {
+    "circomlib": "^2.0.5",
+    "circomlibjs": "^0.1.7",
+    "snarkjs": "^0.7.5"
+  }
+}

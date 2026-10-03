@@ -1,0 +1,27 @@
+[submodule "starters/foundry-oz-tokens/lib/forge-std"]
+	path = starters/foundry-oz-tokens/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "starters/foundry-oz-tokens/lib/openzeppelin-contracts"]
+	path = starters/foundry-oz-tokens/lib/openzeppelin-contracts
+	url = https://github.com/Blockchains/openzeppelin-contracts
+[submodule "starters/chainlink-price-feed/lib/forge-std"]
+	path = starters/chainlink-price-feed/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "starters/uniswap-v4-hook/lib/forge-std"]
+	path = starters/uniswap-v4-hook/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "starters/uniswap-v4-hook/lib/hookmate"]
+	path = starters/uniswap-v4-hook/lib/hookmate
+	url = https://github.com/akshatmittal/hookmate
+[submodule "starters/uniswap-v4-hook/lib/uniswap-hooks"]
+	path = starters/uniswap-v4-hook/lib/uniswap-hooks
+	url = https://github.com/OpenZeppelin/uniswap-hooks
+[submodule "starters/erc4337-smart-account/lib/forge-std"]
+	path = starters/erc4337-smart-account/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "starters/erc4337-smart-account/lib/account-abstraction"]
+	path = starters/erc4337-smart-account/lib/account-abstraction
+	url = https://github.com/Blockchains/account-abstraction
+[submodule "starters/erc4337-smart-account/lib/openzeppelin-contracts"]
+	path = starters/erc4337-smart-account/lib/openzeppelin-contracts
+	url = https://github.com/Blockchains/openzeppelin-contracts

@@ -1,0 +1,5 @@
+image: gitpod/workspace-full
+tasks:
+  - name: toolchains
+    init: bash .devcontainer/setup.sh
+    command: echo "Starters ready. cd starters/<name> and see its README."
