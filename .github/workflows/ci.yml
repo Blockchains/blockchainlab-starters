@@ -31,7 +31,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        starter: [hedera-token-sdk, wagmi-rainbowkit-dapp]
+        starter: [hedera-token-sdk, wagmi-rainbowkit-dapp, ipfs-upload, ai-agent-onchain, farcaster-miniapp]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -42,6 +42,64 @@ jobs:
           npm ci
           npm test
           if npm run | grep -q " build"; then npm run build; fi
+  ccip-crosschain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: foundry-rs/foundry-toolchain@v1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: npm ci + forge test (Chainlink Local simulator + live Sepolia fork quote)
+        working-directory: starters/ccip-crosschain
+        run: |
+          npm ci --no-audit --no-fund
+          forge build --sizes
+          forge test -vv
+  subgraph-indexer:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: graph codegen + build + Matchstick + live data-source check
+        working-directory: starters/subgraph-indexer
+        run: |
+          sudo apt-get install -y -q libpq5 >/dev/null
+          npm ci --no-audit --no-fund
+          npm test
+  solana-anchor-vault:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/solana
+            ~/.local/share/solana
+            starters/solana-anchor-vault/target
+            ~/.cargo/registry
+          key: anchor-0.32.1-agave-2.3.13-${{ hashFiles('starters/solana-anchor-vault/Cargo.lock') }}
+      - name: Install Agave (Solana) 2.3.13 + Anchor 0.32.1 (release binary)
+        run: |
+          [ -x ~/.local/share/solana/install/active_release/bin/solana ] || sh -c "$(curl -sSfL https://release.anza.xyz/v2.3.13/install)"
+          echo "$HOME/.local/share/solana/install/active_release/bin" >> "$GITHUB_PATH"
+          mkdir -p ~/.local/bin && curl -sSfL -o ~/.local/bin/anchor https://github.com/solana-foundation/anchor/releases/download/v0.32.1/anchor-0.32.1-x86_64-unknown-linux-gnu
+          chmod +x ~/.local/bin/anchor && echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: anchor build + test (local validator, mocha)
+        working-directory: starters/solana-anchor-vault
+        run: |
+          solana --version && anchor --version
+          solana-keygen new --no-bip39-passphrase -s -o ~/.config/solana/id.json --force >/dev/null
+          npm ci --no-audit --no-fund
+          anchor keys sync
+          anchor test
   circom:
     runs-on: ubuntu-latest
     steps:

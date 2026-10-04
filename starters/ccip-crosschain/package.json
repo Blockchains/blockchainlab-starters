@@ -1,0 +1,13 @@
+{
+  "name": "@blockchainlab/ccip-crosschain",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Cross-chain messaging + token transfer starter on Chainlink CCIP, tested end-to-end in Foundry with Chainlink Local's CCIPLocalSimulator.",
+  "license": "MIT",
+  "scripts": {
+    "test": "forge build && forge test -vv"
+  },
+  "dependencies": {
+    "@chainlink/local": "0.2.9"
+  }
+}

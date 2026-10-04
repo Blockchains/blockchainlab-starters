@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "name": "ai-agent-onchain",
+  "repo": "Blockchains/blockchainlab-starters",
+  "path": "starters/ai-agent-onchain",
+  "summary": "AI agent with on-chain actions: Grok tool calling over viem tools (balances, ERC-20 reads, chain status, policy-guarded ETH transfers) on Base Sepolia; SDK-free fetch loop.",
+  "kind": ["template", "agent", "cli"],
+  "stability": "beta",
+  "license": "MIT",
+  "entrypoints": [
+    {"type": "cli", "name": "node src/cli.js", "ref": "starters/ai-agent-onchain/src/cli.js", "usage": "XAI_API_KEY=... node src/cli.js \"<question>\""},
+    {"type": "library", "name": "runAgent", "ref": "starters/ai-agent-onchain/src/agent.js", "usage": "import { runAgent } from './agent.js'"}
+  ],
+  "inputs": [{"name": "XAI_API_KEY", "type": "env"}, {"name": "AGENT_PRIVATE_KEY", "type": "env", "description": "optional testnet key for writes"}, {"name": "RPC_URL", "type": "env", "description": "optional"}],
+  "outputs": [{"name": "answer + tool trace", "type": "json"}],
+  "deps": ["node>=20", "viem"],
+  "compatible_with": [{"repo": "Blockchains/blockchainlab-mcp", "how": "same read-only chain tools exposed over MCP"}, {"repo": "Blockchains/eliza", "how": "full agent framework when you outgrow the loop"}, {"repo": "Blockchains/buidl", "how": "agent block for generated products"}],
+  "tests": {"command": "npm test", "ci": ".github/workflows/ci.yml", "network": true}
+}

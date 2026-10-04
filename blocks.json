@@ -3,7 +3,7 @@
   "schema_version": "1.0",
   "name": "blockchainlab-starters",
   "repo": "Blockchains/blockchainlab-starters",
-  "summary": "Template repo of 8 CI-tested starters built on Blockchains forks: foundry-oz-tokens, chainlink-price-feed, uniswap-v4-hook, erc4337-smart-account, hedera-token-sdk, wagmi-rainbowkit-dapp, circom-zk-proof and noir-zk-proof.",
+  "summary": "Template repo of 14 CI-tested starters built on Blockchains forks: foundry-oz-tokens (ERC-20/721/1155), chainlink-price-feed, uniswap-v4-hook, erc4337-smart-account (+ paymaster), hedera-token-sdk, wagmi-rainbowkit-dapp, circom-zk-proof, noir-zk-proof, subgraph-indexer, ipfs-upload, ccip-crosschain, ai-agent-onchain, farcaster-miniapp and solana-anchor-vault.",
   "kind": [
     "template"
   ],
@@ -21,6 +21,12 @@
       "name": "starters/<name>/",
       "ref": "starters/",
       "usage": "cd starters/<name> && follow its README"
+    },
+    {
+      "type": "file",
+      "name": "starters/<name>/blocks.json",
+      "ref": "starters/",
+      "usage": "per-starter manifest (subgraph-indexer, ipfs-upload, ccip-crosschain, ai-agent-onchain, farcaster-miniapp, solana-anchor-vault)"
     }
   ],
   "inputs": [
@@ -45,7 +51,10 @@
     "foundry",
     "node>=20",
     "circom 2.2.3 + snarkjs",
-    "nargo"
+    "nargo",
+    "The Graph graph-cli + matchstick (libpq5)",
+    "Agave 2.3.13 + Anchor 0.32.1",
+    "@chainlink/local"
   ],
   "compatible_with": [
     {
@@ -63,6 +72,10 @@
     {
       "repo": "Blockchains/blockchainlab-compose",
       "how": "generated alternative for token/NFT ideas"
+    },
+    {
+      "repo": "Blockchains/buidl",
+      "how": "brief-to-product pipeline that plans from these starters"
     }
   ],
   "tests": {

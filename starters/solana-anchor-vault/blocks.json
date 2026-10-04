@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "name": "solana-anchor-vault",
+  "repo": "Blockchains/blockchainlab-starters",
+  "path": "starters/solana-anchor-vault",
+  "summary": "Solana Anchor 0.32 starter: per-user SOL vault program (PDA state + lamport vault, CPI transfers, has_one/seeds constraints, events, errors) with mocha tests on a local validator.",
+  "kind": ["template", "program"],
+  "stability": "beta",
+  "license": "MIT",
+  "entrypoints": [{"type": "file", "name": "programs/solana-vault/src/lib.rs", "ref": "starters/solana-anchor-vault/programs/solana-vault/src/lib.rs", "usage": "npm ci && anchor keys sync && anchor test"}],
+  "inputs": [{"name": "wallet", "type": "file", "description": "~/.config/solana/id.json (local) or a devnet keypair"}],
+  "outputs": [{"name": "solana_vault program + IDL", "type": "program", "description": "target/deploy/*.so, target/idl/solana_vault.json, target/types"}],
+  "deps": ["agave 2.3.13", "anchor-cli 0.32.1", "rust 1.89 (host) / platform-tools 1.84", "node>=20"],
+  "compatible_with": [{"repo": "Blockchains/anchor", "how": "framework"}, {"repo": "Blockchains/wallet-adapter", "how": "front-end wallet connect"}, {"repo": "Blockchains/solana-web3.js", "how": "client"}, {"repo": "Blockchains/buidl", "how": "Solana block for generated products"}],
+  "tests": {"command": "anchor test", "ci": ".github/workflows/ci.yml", "network": false}
+}

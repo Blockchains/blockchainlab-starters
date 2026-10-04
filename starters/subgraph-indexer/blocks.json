@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "name": "subgraph-indexer",
+  "repo": "Blockchains/blockchainlab-starters",
+  "path": "starters/subgraph-indexer",
+  "summary": "The Graph subgraph starter: ERC-20 Transfer -> Transfer/Account entities with balances, Matchstick unit tests and a live RPC check; deploy to Subgraph Studio.",
+  "kind": ["template", "indexer"],
+  "stability": "beta",
+  "license": "MIT",
+  "entrypoints": [{"type": "file", "name": "starters/subgraph-indexer/", "ref": "starters/subgraph-indexer/", "usage": "npm ci && npm test"}],
+  "inputs": [{"name": "subgraph.yaml", "type": "file", "description": "network, token address, startBlock"}],
+  "outputs": [{"name": "GraphQL API", "type": "api", "description": "accounts and transfers once deployed to Subgraph Studio"}],
+  "deps": ["node>=20", "@graphprotocol/graph-cli", "@graphprotocol/graph-ts", "matchstick-as", "libpq5 (tests)"],
+  "compatible_with": [{"repo": "Blockchains/graph-tooling", "how": "the CLI and AssemblyScript library used"}, {"repo": "Blockchains/buidl", "how": "indexer block for generated products"}],
+  "tests": {"command": "npm test", "ci": ".github/workflows/ci.yml", "network": true}
+}

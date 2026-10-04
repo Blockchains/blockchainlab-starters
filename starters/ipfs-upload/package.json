@@ -1,0 +1,22 @@
+{
+  "name": "@blockchainlab/ipfs-upload",
+  "version": "0.1.0",
+  "private": true,
+  "description": "IPFS upload starter on the Helia stack: content-address files locally (UnixFS, same CIDs as Kubo), export CAR files, pin to Pinata when a JWT is set, verify via public gateways.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "ipfs-upload": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test test/",
+    "upload": "node src/cli.js"
+  },
+  "dependencies": {
+    "@helia/unixfs": "^8.0.9",
+    "@ipld/car": "^5.4.7",
+    "@ipld/dag-pb": "^4.2.0",
+    "blockstore-core": "^7.0.1",
+    "multiformats": "^14.0.5"
+  }
+}

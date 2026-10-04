@@ -25,3 +25,6 @@
 [submodule "starters/erc4337-smart-account/lib/openzeppelin-contracts"]
 	path = starters/erc4337-smart-account/lib/openzeppelin-contracts
 	url = https://github.com/Blockchains/openzeppelin-contracts
+[submodule "starters/ccip-crosschain/lib/forge-std"]
+	path = starters/ccip-crosschain/lib/forge-std
+	url = https://github.com/Blockchains/forge-std

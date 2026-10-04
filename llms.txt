@@ -1,6 +1,6 @@
 # blockchainlab-starters
 
-> Template repo of 8 CI-tested starters built on Blockchains forks: foundry-oz-tokens, chainlink-price-feed, uniswap-v4-hook, erc4337-smart-account, hedera-token-sdk, wagmi-rainbowkit-dapp, circom-zk-proof and noir-zk-proof.
+> Template repo of 14 CI-tested starters built on Blockchains forks: foundry-oz-tokens (ERC-20/721/1155), chainlink-price-feed, uniswap-v4-hook, erc4337-smart-account (+ paymaster), hedera-token-sdk, wagmi-rainbowkit-dapp, circom-zk-proof, noir-zk-proof, subgraph-indexer, ipfs-upload, ccip-crosschain, ai-agent-onchain, farcaster-miniapp and solana-anchor-vault.
 
 ## Docs
 
@@ -13,6 +13,12 @@
 - [starters/foundry-oz-tokens/](https://github.com/Blockchains/blockchainlab-starters/blob/main/starters/foundry-oz-tokens/): OpenZeppelin tokens
 - [starters/wagmi-rainbowkit-dapp/](https://github.com/Blockchains/blockchainlab-starters/blob/main/starters/wagmi-rainbowkit-dapp/): dApp front end
 - [starters/erc4337-smart-account/](https://github.com/Blockchains/blockchainlab-starters/blob/main/starters/erc4337-smart-account/): account abstraction
+- [starters/subgraph-indexer/](https://github.com/Blockchains/blockchainlab-starters/blob/main/starters/subgraph-indexer/): The Graph subgraph
+- [starters/ipfs-upload/](https://github.com/Blockchains/blockchainlab-starters/blob/main/starters/ipfs-upload/): IPFS upload on Helia
+- [starters/ccip-crosschain/](https://github.com/Blockchains/blockchainlab-starters/blob/main/starters/ccip-crosschain/): Chainlink CCIP cross-chain
+- [starters/ai-agent-onchain/](https://github.com/Blockchains/blockchainlab-starters/blob/main/starters/ai-agent-onchain/): Grok agent with on-chain tools
+- [starters/farcaster-miniapp/](https://github.com/Blockchains/blockchainlab-starters/blob/main/starters/farcaster-miniapp/): Farcaster Mini App
+- [starters/solana-anchor-vault/](https://github.com/Blockchains/blockchainlab-starters/blob/main/starters/solana-anchor-vault/): Solana Anchor program
 
 ## Related
 

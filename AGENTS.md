@@ -4,7 +4,7 @@ Instructions for AI coding agents (Grok, Cursor, Claude Code, Codex, Copilot and
 
 ## What this is
 
-Template repo of 8 CI-tested starters built on Blockchains forks: foundry-oz-tokens, chainlink-price-feed, uniswap-v4-hook, erc4337-smart-account, hedera-token-sdk, wagmi-rainbowkit-dapp, circom-zk-proof and noir-zk-proof.
+Template repo of 14 CI-tested starters built on Blockchains forks: foundry-oz-tokens (ERC-20/721/1155), chainlink-price-feed, uniswap-v4-hook, erc4337-smart-account (+ paymaster), hedera-token-sdk, wagmi-rainbowkit-dapp, circom-zk-proof, noir-zk-proof, subgraph-indexer, ipfs-upload, ccip-crosschain, ai-agent-onchain, farcaster-miniapp and solana-anchor-vault.
 
 - Kind: template · stability: `stable` · licence: MIT
 - Machine-readable manifest: [`blocks.json`](blocks.json) (schema: [BLOCKS-SCHEMA](https://github.com/Blockchains/.github/blob/main/docs/BLOCKS-SCHEMA.md))
@@ -23,6 +23,9 @@ bash .devcontainer/setup.sh   # optional: installs all toolchains
 cd starters/<name> && forge build && forge test   # Foundry starters
 cd starters/<name> && npm ci && npm test   # Node starters
 cd starters/noir-zk-proof && nargo test
+cd starters/ccip-crosschain && npm ci && forge test        # npm deps + Foundry
+cd starters/subgraph-indexer && npm ci && npm test        # needs libpq5 for Matchstick
+cd starters/solana-anchor-vault && npm ci && anchor keys sync && anchor test   # Agave 2.3.13 + Anchor 0.32.1
 ```
 
 Tests hit **live** public networks/APIs (the org rule is no mocks). A failure can be an upstream outage: re-run before changing code.

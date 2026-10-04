@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "name": "ccip-crosschain",
+  "repo": "Blockchains/blockchainlab-starters",
+  "path": "starters/ccip-crosschain",
+  "summary": "Cross-chain messaging + token transfer starter on Chainlink CCIP: allow-listed sender/receiver contract, end-to-end tests on Chainlink Local's simulator and a live Sepolia fork fee quote.",
+  "kind": ["template", "contract"],
+  "stability": "beta",
+  "license": "MIT",
+  "entrypoints": [{"type": "file", "name": "src/CrossChainMessenger.sol", "ref": "starters/ccip-crosschain/src/CrossChainMessenger.sol", "usage": "npm ci && forge test"}],
+  "inputs": [{"name": "ROUTER, LINK", "type": "env", "description": "CCIP router + LINK token of the chain (deploy script)"}],
+  "outputs": [{"name": "CrossChainMessenger", "type": "contract", "description": "send()/quote() on the source, MessageReceived on the destination"}],
+  "deps": ["foundry", "node>=20", "@chainlink/local 0.2.9"],
+  "compatible_with": [{"repo": "Blockchains/chainlink-evm", "how": "Chainlink contracts"}, {"repo": "Blockchains/forge-std", "how": "test framework (submodule)"}, {"repo": "Blockchains/buidl", "how": "cross-chain block for generated products"}],
+  "tests": {"command": "npm ci && forge test -vv", "ci": ".github/workflows/ci.yml", "network": true}
+}

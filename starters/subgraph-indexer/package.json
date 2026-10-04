@@ -1,0 +1,19 @@
+{
+  "name": "@blockchainlab/subgraph-indexer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The Graph subgraph starter: indexes ERC-20 Transfer events into Transfer + Account entities, with Matchstick unit tests.",
+  "license": "MIT",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "test": "graph codegen && graph build && graph test -v 0.6.0 && node scripts/check-live.mjs",
+    "deploy:studio": "graph deploy --studio $SUBGRAPH_SLUG",
+    "check:live": "node scripts/check-live.mjs"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.98.1",
+    "@graphprotocol/graph-ts": "^0.38.0",
+    "matchstick-as": "^0.6.0"
+  }
+}

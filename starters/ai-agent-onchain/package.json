@@ -1,0 +1,16 @@
+{
+  "name": "@blockchainlab/ai-agent-onchain",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI agent with on-chain actions: Grok (xAI) tool calling over viem tools (balances, ERC-20 reads, gas, guarded native transfers) on Base Sepolia by default.",
+  "license": "MIT",
+  "type": "module",
+  "bin": { "onchain-agent": "src/cli.js" },
+  "scripts": {
+    "test": "node --test test/",
+    "agent": "node src/cli.js"
+  },
+  "dependencies": {
+    "viem": "^2.21.0"
+  }
+}

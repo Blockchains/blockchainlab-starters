@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "name": "farcaster-miniapp",
+  "repo": "Blockchains/blockchainlab-starters",
+  "path": "starters/farcaster-miniapp",
+  "summary": "Farcaster Mini App starter: Vite static app with @farcaster/miniapp-sdk (ready, context, in-client wallet via viem, composeCast); fc:miniapp embed + domain manifest validated against the official schemas.",
+  "kind": ["template", "frontend"],
+  "stability": "beta",
+  "license": "MIT",
+  "entrypoints": [{"type": "file", "name": "starters/farcaster-miniapp/", "ref": "starters/farcaster-miniapp/", "usage": "npm ci && npm test && npm run build"}],
+  "inputs": [{"name": "APP_URL", "type": "env", "description": "https origin serving the app at the domain root"}, {"name": "ACCOUNT_ASSOCIATION", "type": "env", "description": "signed domain association JSON"}],
+  "outputs": [{"name": "dist/", "type": "static site", "description": "index.html with fc:miniapp meta + .well-known/farcaster.json"}],
+  "deps": ["node>=20", "@farcaster/miniapp-sdk", "viem", "vite"],
+  "compatible_with": [{"repo": "Blockchains/blockchainlab-starters", "how": "pair with foundry-oz-tokens for mint-in-feed apps"}, {"repo": "Blockchains/buidl", "how": "social front-end block for generated products"}],
+  "tests": {"command": "npm test", "ci": ".github/workflows/ci.yml", "network": false}
+}

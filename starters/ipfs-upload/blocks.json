@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "name": "ipfs-upload",
+  "repo": "Blockchains/blockchainlab-starters",
+  "path": "starters/ipfs-upload",
+  "summary": "IPFS upload starter on Helia: local UnixFS CIDs identical to `ipfs add`, NFT metadata directories, CAR export, Pinata pinning, public-gateway verification.",
+  "kind": ["template", "library", "cli"],
+  "stability": "beta",
+  "license": "MIT",
+  "entrypoints": [
+    {"type": "cli", "name": "node src/cli.js", "ref": "starters/ipfs-upload/src/cli.js", "usage": "node src/cli.js <file> [--car out.car] [--pin]"},
+    {"type": "library", "name": "src/ipfs.js", "ref": "starters/ipfs-upload/src/ipfs.js", "usage": "import { createStore, addBytes, toCar } from './ipfs.js'"}
+  ],
+  "inputs": [{"name": "file bytes", "type": "bytes"}, {"name": "PINATA_JWT", "type": "env", "description": "optional, for pinning"}],
+  "outputs": [{"name": "CID", "type": "string"}, {"name": "CAR", "type": "file"}],
+  "deps": ["node>=20", "@helia/unixfs", "@ipld/car", "blockstore-core", "multiformats"],
+  "compatible_with": [{"repo": "Blockchains/helia", "how": "the UnixFS implementation used"}, {"repo": "Blockchains/blockchainlab-starters", "how": "metadata for foundry-oz-tokens LabNFT/LabItems"}, {"repo": "Blockchains/buidl", "how": "storage block for generated products"}],
+  "tests": {"command": "npm test", "ci": ".github/workflows/ci.yml", "network": true}
+}
