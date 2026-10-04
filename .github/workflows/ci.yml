@@ -15,7 +15,7 @@ jobs:
       matrix:
         starter: [foundry-oz-tokens, chainlink-price-feed, uniswap-v4-hook, erc4337-smart-account]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
       - uses: foundry-rs/foundry-toolchain@v1
@@ -33,8 +33,8 @@ jobs:
       matrix:
         starter: [hedera-token-sdk, wagmi-rainbowkit-dapp]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 20
       - working-directory: starters/${{ matrix.starter }}
@@ -45,8 +45,8 @@ jobs:
   circom:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 20
       - name: Install circom v2.2.3
@@ -61,7 +61,7 @@ jobs:
   noir:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: noir-lang/noirup@v0.1.5
         with:
           toolchain: stable
@@ -73,7 +73,7 @@ jobs:
   gitleaks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: gitleaks
