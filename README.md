@@ -24,3 +24,23 @@ Live dApp demo (GitHub Pages): https://blockchains.github.io/blockchainlab-start
 
 ## Licences
 Starter code is MIT unless the file header says otherwise. `erc4337-smart-account` extends GPL-3.0 code from eth-infinitism, so its own files are GPL-3.0. `hedera-token-sdk` is Apache-2.0. Each dependency keeps its upstream licence, and those are listed in the [awesome-blockchainlab](https://github.com/Blockchains/awesome-blockchainlab) catalogue. None of this code is audited, so do your own review before deploying to mainnet.
+
+## Configuration
+
+Most starters need no configuration. Optional variables:
+
+| Variable | Starter | Purpose |
+|---|---|---|
+| `MAINNET_RPC_URL` | chainlink-price-feed | RPC for the live mainnet fork test |
+| `FEED` | chainlink-price-feed (`script/Deploy.s.sol`) | Chainlink feed address to deploy against |
+| `ENTRYPOINT` | erc4337-smart-account (`script/Deploy.s.sol`) | EntryPoint address |
+| `HEDERA_OPERATOR_ID`, `HEDERA_OPERATOR_KEY`, `HEDERA_NETWORK` | hedera-token-sdk | Hedera testnet account for the live script |
+
+See each starter's README for details.
+
+## Contributing
+
+Issues and pull requests are welcome. Please read the [contributing guide](https://github.com/Blockchains/.github/blob/main/CONTRIBUTING.md), [code of conduct](https://github.com/Blockchains/.github/blob/main/CODE_OF_CONDUCT.md) and [security policy](https://github.com/Blockchains/.github/blob/main/SECURITY.md) first.
+
+---
+Built by Blockchain Lab — [blockchainlab.com](https://blockchainlab.com/?utm_source=github&utm_medium=readme&utm_campaign=blockchainlab-starters)
