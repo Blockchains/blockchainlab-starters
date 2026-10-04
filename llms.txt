@@ -1,0 +1,24 @@
+# blockchainlab-starters
+
+> Template repo of 8 CI-tested starters built on Blockchains forks: foundry-oz-tokens, chainlink-price-feed, uniswap-v4-hook, erc4337-smart-account, hedera-token-sdk, wagmi-rainbowkit-dapp, circom-zk-proof and noir-zk-proof.
+
+## Docs
+
+- [README](https://raw.githubusercontent.com/Blockchains/blockchainlab-starters/main/README.md): overview, install and the 'Use as a building block' section
+- [AGENTS.md](https://raw.githubusercontent.com/Blockchains/blockchainlab-starters/main/AGENTS.md): setup, build/test commands, structure map, conventions and rules for AI coding agents
+- [blocks.json](https://raw.githubusercontent.com/Blockchains/blockchainlab-starters/main/blocks.json): machine-readable building-block manifest (entrypoints, inputs, outputs, deps, compatible blocks)
+
+## Key files
+
+- [starters/foundry-oz-tokens/](https://github.com/Blockchains/blockchainlab-starters/blob/main/starters/foundry-oz-tokens/): OpenZeppelin tokens
+- [starters/wagmi-rainbowkit-dapp/](https://github.com/Blockchains/blockchainlab-starters/blob/main/starters/wagmi-rainbowkit-dapp/): dApp front end
+- [starters/erc4337-smart-account/](https://github.com/Blockchains/blockchainlab-starters/blob/main/starters/erc4337-smart-account/): account abstraction
+
+## Related
+
+- [Build with Blocks](https://github.com/Blockchains/.github/blob/main/docs/BUILD-WITH-BLOCKS.md): how to assemble projects from Blockchains repos
+- [Org llms.txt](https://blockchains.github.io/llms.txt) · [blocks catalogue](https://blockchains.github.io/blocks.json)
+- [Blockchains/blockchainlab-labs](https://github.com/Blockchains/blockchainlab-labs): learn the pattern, then start from the matching starter
+- [Blockchains/blockchainlab-sdk](https://github.com/Blockchains/blockchainlab-sdk): add live data to wagmi-rainbowkit-dapp
+- [Blockchains/awesome-blockchainlab](https://github.com/Blockchains/awesome-blockchainlab): the forks the starters pin
+- [Blockchains/blockchainlab-compose](https://github.com/Blockchains/blockchainlab-compose): generated alternative for token/NFT ideas

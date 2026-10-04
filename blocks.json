@@ -1,0 +1,78 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Blockchains/.github/main/docs/blocks.schema.json",
+  "schema_version": "1.0",
+  "name": "blockchainlab-starters",
+  "repo": "Blockchains/blockchainlab-starters",
+  "summary": "Template repo of 8 CI-tested starters built on Blockchains forks: foundry-oz-tokens, chainlink-price-feed, uniswap-v4-hook, erc4337-smart-account, hedera-token-sdk, wagmi-rainbowkit-dapp, circom-zk-proof and noir-zk-proof.",
+  "kind": [
+    "template"
+  ],
+  "stability": "stable",
+  "license": "MIT",
+  "entrypoints": [
+    {
+      "type": "git",
+      "name": "Use this template",
+      "ref": "https://github.com/new?template_name=blockchainlab-starters&template_owner=Blockchains",
+      "usage": "GitHub template / Codespaces / Gitpod"
+    },
+    {
+      "type": "file",
+      "name": "starters/<name>/",
+      "ref": "starters/",
+      "usage": "cd starters/<name> && follow its README"
+    }
+  ],
+  "inputs": [
+    {
+      "name": "starter choice",
+      "type": "directory name"
+    },
+    {
+      "name": "optional env",
+      "type": "env",
+      "description": "MAINNET_RPC_URL, FEED, ENTRYPOINT, HEDERA_OPERATOR_ID/KEY/NETWORK"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "working project skeleton",
+      "type": "repo",
+      "description": "tests passing in CI"
+    }
+  ],
+  "deps": [
+    "foundry",
+    "node>=20",
+    "circom 2.2.3 + snarkjs",
+    "nargo"
+  ],
+  "compatible_with": [
+    {
+      "repo": "Blockchains/blockchainlab-labs",
+      "how": "learn the pattern, then start from the matching starter"
+    },
+    {
+      "repo": "Blockchains/blockchainlab-sdk",
+      "how": "add live data to wagmi-rainbowkit-dapp"
+    },
+    {
+      "repo": "Blockchains/awesome-blockchainlab",
+      "how": "the forks the starters pin"
+    },
+    {
+      "repo": "Blockchains/blockchainlab-compose",
+      "how": "generated alternative for token/NFT ideas"
+    }
+  ],
+  "tests": {
+    "command": "cd starters/<name> && forge test   # or npm test / nargo test per starter",
+    "ci": ".github/workflows/ci.yml",
+    "network": true
+  },
+  "docs": {
+    "readme": "README.md",
+    "agents": "AGENTS.md",
+    "llms": "llms.txt"
+  }
+}

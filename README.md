@@ -25,6 +25,41 @@ Live dApp demo (GitHub Pages): https://blockchains.github.io/blockchainlab-start
 ## Licences
 Starter code is MIT unless the file header says otherwise. `erc4337-smart-account` extends GPL-3.0 code from eth-infinitism, so its own files are GPL-3.0. `hedera-token-sdk` is Apache-2.0. Each dependency keeps its upstream licence, and those are listed in the [awesome-blockchainlab](https://github.com/Blockchains/awesome-blockchainlab) catalogue. None of this code is audited, so do your own review before deploying to mainnet.
 
+<!-- blocks:start -->
+## Use as a building block
+
+> **For AI agents and builders:** read [`AGENTS.md`](AGENTS.md) (setup, commands, structure, rules), [`llms.txt`](llms.txt) (doc map) and the machine-readable [`blocks.json`](blocks.json) ([schema](https://github.com/Blockchains/.github/blob/main/docs/BLOCKS-SCHEMA.md)). How all Blockchains blocks fit together: **[Build with Blocks](https://github.com/Blockchains/.github/blob/main/docs/BUILD-WITH-BLOCKS.md)** · org catalogue: [https://blockchains.github.io/blocks.json](https://blockchains.github.io/blocks.json).
+
+**What it exports**
+
+| Export | Type | Install / access |
+|---|---|---|
+| `Use this template` | git | `GitHub template / Codespaces / Gitpod` |
+| `starters/<name>/` | file | `cd starters/<name> && follow its README` |
+
+**Minimal example** (per the starter READMEs; CI runs each starter on every push)
+
+```bash
+git clone --recursive https://github.com/Blockchains/blockchainlab-starters && cd blockchainlab-starters
+cd starters/foundry-oz-tokens && forge test        # capped/permit ERC-20 + ERC-721 with royalties
+cd ../noir-zk-proof && nargo test                  # private age-threshold proof
+```
+
+**Inputs → outputs**
+
+- In: `starter choice` (directory name); `optional env` (env) MAINNET_RPC_URL, FEED, ENTRYPOINT, HEDERA_OPERATOR_ID/KEY/NETWORK
+- Out: `working project skeleton` (repo) tests passing in CI
+
+**Composes with**
+
+- [Blockchains/blockchainlab-labs](https://github.com/Blockchains/blockchainlab-labs): learn the pattern, then start from the matching starter
+- [Blockchains/blockchainlab-sdk](https://github.com/Blockchains/blockchainlab-sdk): add live data to wagmi-rainbowkit-dapp
+- [Blockchains/awesome-blockchainlab](https://github.com/Blockchains/awesome-blockchainlab): the forks the starters pin
+- [Blockchains/blockchainlab-compose](https://github.com/Blockchains/blockchainlab-compose): generated alternative for token/NFT ideas
+
+**Versioning & stability:** `stable`. Each starter pins its fork dependencies as submodules or exact versions; upgrades land as PRs with CI green.
+<!-- blocks:end -->
+
 ## Configuration
 
 Most starters need no configuration. Optional variables:
